@@ -10,10 +10,16 @@
                                       type="range" min="0" max="100"></b-form-input>
                         <div class="mt-2">Value: {{ value }}</div>
                     </div>
+                    <div>
+                        <label for="rangeNumber2">Select a second number</label>
+                        <b-form-input id="rangeNumber2" v-model="value2"
+                                      type="range" min="0" max="50"></b-form-input>
+                        <div class="mt-2">Value: {{ value2 }}</div>
+                    </div>
                 </b-col>
                 <b-col cols="8">
                   <h4>D3.js visualization</h4>
-                  <sliderCircle :firstNumber="value"></sliderCircle>
+                  <sliderCircle :firstNumber="value" :secondNumber="value2"></sliderCircle>
                 </b-col>
             </b-row>
         </b-container>
@@ -31,6 +37,7 @@
         data() {
             return {
                 value: 10,
+                value2: 1,
             }
         }
     }

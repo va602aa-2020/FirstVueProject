@@ -4,7 +4,6 @@ export default function () {
     let width = 420;
     let height = 200;
 
-    // TODO: create scale for radius
     const r = d3.scaleSqrt()
         .domain([0, 100])
         .range([0, 50]);

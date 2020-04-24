@@ -1,6 +1,6 @@
 <template>
     <div>
-       <svg :width="width" :height="height">
+       <svg ref="myCircle" :width="width" :height="height">
 
        </svg>
     </div>
@@ -16,6 +16,7 @@
         name: "sliderCircle",
         props: {
             firstNumber: Number,
+            secondNumber: Number,
         },
         data(){
             return {
@@ -26,15 +27,20 @@
         mounted(){
             this.redraw();
         },
+        computed:{
+          product(){
+             return this.firstNumber * this.secondNumber;
+          }
+        },
         methods:{
             redraw(){
-                d3.select('svg')
-                    .datum([this.firstNumber])
+                d3.select(this.$refs.myCircle)
+                    .datum([this.product])
                     .call(sc);
             }
         },
         watch:{
-            firstNumber(newVal, oldVal){
+            product(newVal, oldVal){
                 if(newVal !== oldVal){
                     this.redraw();
                 }
