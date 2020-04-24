@@ -14,10 +14,10 @@
 
     export default {
         name: "sliderCircle",
-        props: {
-            firstNumber: Number,
-            secondNumber: Number,
-        },
+        props: [
+            'firstNumber',
+            'secondNumber',
+        ],
         data(){
             return {
                 width: 400,
